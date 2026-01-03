@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelMitra AI - The Intelligent Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Ambient Background Animation (New) -->
+    <div class="background-decor">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="logo"><i class="fas fa-route"></i> TravelMitra</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#planner" class="nav-btn">Plan Trip</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Travel Smart across<br><span>Incredible India</span></h1>
+            <p>The first AI-powered companion that learns from your feedback. Personalized itineraries, safety ratings, and budget optimization for over 100+ Indian cities.</p>
+            <a href="#planner" class="hero-btn">Start Planning <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="feature-box glass-card hover-3d">
+            <div class="icon-box"><i class="fas fa-brain"></i></div>
+            <h3>Generative AI Core</h3>
+            <p>Understanding your vibe, not just your dates. We use GenAI to craft stories.</p>
+        </div>
+        <div class="feature-box glass-card hover-3d">
+            <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+            <h3>Safety Shield</h3>
+            <p>Real-time safety checks, emergency numbers, and cultural do's & don'ts.</p>
+        </div>
+        <div class="feature-box glass-card hover-3d">
+            <div class="icon-box"><i class="fas fa-sync-alt"></i></div>
+            <h3>Feedback Loop</h3>
+            <p>Our system gets smarter with every trip. User reviews refine future recommendations.</p>
+        </div>
+    </section>
+
+    <!-- AI Interface -->
+    <section id="planner" class="ai-section">
+        <div class="ai-container">
+            
+            <!-- Left: Inputs -->
+            <div class="input-panel glass-card">
+                <h2>Tell us your plan</h2>
+                <div class="input-group">
+                    <label>Where & What?</label>
+                    <textarea id="promptInput" rows="3" placeholder="e.g. I want to visit Udaipur and Mount Abu with 3 college friends. We love history and street food."></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Budget</label>
+                        <select id="budget">
+                            <option value="Budget (Student)">Budget (Student)</option>
+                            <option value="Standard (Family)">Standard (Family)</option>
+                            <option value="Luxury">Luxury</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Transport</label>
+                        <select id="transport">
+                            <option value="Train preferred">Train Preferred</option>
+                            <option value="Bus/Volvo">Bus/Volvo</option>
+                            <option value="Flight + Cab">Flight + Cab</option>
+                            <option value="Self Drive">Self Drive</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Dietary</label>
+                        <select id="diet">
+                            <option value="No Restrictions">No Restrictions</option>
+                            <option value="Pure Veg">Pure Veg</option>
+                            <option value="Jain (No Onion/Garlic)">Jain (Strict)</option>
+                            <option value="Halal Only">Halal Only</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Language</label>
+                        <select id="language">
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi (हिंदी)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="generate-btn" id="generateBtn">
+                    <i class="fas fa-sparkles"></i> Generate Itinerary
+                </button>
+            </div>
+
+            <!-- Right: Output -->
+            <div class="output-panel">
+                <!-- Loader -->
+                <div id="loader" class="loader-state">
+                    <div class="spinner"></div>
+                    <div class="loading-text">Consulting TravelMitra AI...</div>
+                    <div class="loading-sub" id="loadingSub">Analyzing routes...</div>
+                </div>
+
+                <!-- Results -->
+                <div id="resultContainer" class="result-container"></div>
+
+                <!-- Feedback -->
+                <div id="feedbackSection" class="feedback-cta">
+                    <h3><i class="fas fa-check-circle"></i> Trip Completed?</h3>
+                    <p>Help TravelMitra get smarter. How was the itinerary?</p>
+                    <div class="feedback-btns">
+                        <button class="nav-btn bad-btn" onclick="submitFeedback('Bad')">👎 Missed the mark</button>
+                        <button class="nav-btn good-btn" onclick="submitFeedback('Good')">👍 Accurate!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
